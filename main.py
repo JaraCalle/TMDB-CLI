@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import typer
 from movies.commands import movies_app
 
