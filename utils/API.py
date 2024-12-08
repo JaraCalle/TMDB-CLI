@@ -9,6 +9,11 @@ class Tmdb():
             "Authorization": config("TMDB_API_KEY")
         }
     
+    def get_movies(self) -> dict:
+        url = f"{self.url}/3/trending/movie/day?language=es-MX"
+        response = requests.get(url, headers=self.headers)
+        return response.json()
+
     def get_popular_movies(self, page: int = 1) -> dict:
         url = f"{self.url}/3/movie/popular?language=es-MX&page={page}"
         response = requests.get(url, headers=self.headers)

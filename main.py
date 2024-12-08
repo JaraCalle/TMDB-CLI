@@ -1,13 +1,9 @@
 import typer
+from movies.commands import movies_app
 
 app = typer.Typer()
 
-@app.command()
-def saludar(nombre: str, edad: int = typer.Option(None, help="Tu edad")):
-    """Ejemplo de CLI con typer."""
-    print(f"Hola, {nombre}!")
-    if edad:
-        print(f"Tienes {edad} años.")
+app.add_typer(movies_app, name="")
 
 if "__main__" == __name__:
     app()
